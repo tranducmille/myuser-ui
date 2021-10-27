@@ -1,0 +1,63 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h1 class="user-title">User Management</h1></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="users">
+            <button [class]="'btn-plus mat-focus-indicator mat-raised-button mat-button-base mat-primary'" mat-raised-button (click)="openDialog('Add',{})" color="primary">
+                <mat-icon [class]="'mat-icon material-icons mdi mdi-plus'"></mat-icon>
+              </button>
+            <div class="spinner-container" *ngIf="loading$ | async">
+                <mat-spinner></mat-spinner>
+            </div>
+        
+            <mat-table class="user-table mat-elevation-z8" [dataSource]="dataSource">
+          
+                <ng-container matColumnDef="seqNo">
+                    <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+                    <mat-cell *matCellDef="let user">{{user.id}}</mat-cell>
+                </ng-container>
+              
+                <ng-container matColumnDef="accountName">
+                    <mat-header-cell *matHeaderCellDef>Account Name</mat-header-cell>
+                    <mat-cell class="description-cell"
+                              *matCellDef="let user">{{user.accountName}}</mat-cell>
+                </ng-container>
+              
+                <ng-container matColumnDef="address">
+                    <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+                    <mat-cell class="duration-cell"
+                              *matCellDef="let user">{{user.address}}, {{user.city}}, {{user.country}}</mat-cell>
+                </ng-container>
+        
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>            
+                    <mat-cell  *matCellDef="let user"> 
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon [class]="'mat-icon material-icons mdi mdi-dots-vertical'"></mat-icon>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="openDialog('Update',user)">
+                              <mat-icon  [class]="'mat-icon material-icons mdi mdi-pencil'"></mat-icon>
+                              <span>Edit</span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item (click)="openDialog('Delete',user)">
+                              <mat-icon [class]="'mat-icon material-icons mdi mdi-delete'"></mat-icon>
+                              <span>Delete</span>
+                            </button>
+                          </mat-menu>
+                    </mat-cell>
+                </ng-container>
+                
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                
+                <mat-row *matRowDef="let row; columns: displayedColumns" (click)="onRowClicked(row)"></mat-row>
+                
+            </mat-table>
+        
+        </div>
+    </mat-card-content>
+  </mat-card>
+

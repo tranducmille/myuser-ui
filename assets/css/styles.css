@@ -1,0 +1,49 @@
+.tag {
+	font-weight: bold; margin-right: 1em;
+}
+
+.value {
+	font-family: monospace;
+}
+
+.pre {
+	font-family: monospace; white-space: pre;
+}
+
+body {
+	background-color: white;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+	position: absolute;
+	z-index: 1000;
+	display: flex;
+	flex-direction: column;
+	min-width: 1px;
+	min-height: 1px;
+}
+.mat-icon {
+	height: inherit !important;
+}
+
+.btn-plus {
+	float:right;
+}
+
+.cdk-focused,
+.cdk-mouse-focused {
+	border: none;
+}
+
+.user-table {
+	clear: right;
+}
+
+.user-title {
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button:focus {
+	outline: inherit  !important;
+}

@@ -1,0 +1,18 @@
+{
+	"translatorTextKey": "",
+	"supportedLocales": [],
+	"liferayDir": "C:\\Projects\\Spire\\ApplicationServers\\liferay-ce-portal-7.3.4-ga5",
+	"webpack": {
+		"rules": [
+			{
+				"test": "src\\\\.*\\.ts$",
+				"use": "ts-loader"
+			}
+		],
+		"extensions": [
+			".ts",
+			".js"
+		],
+		"mainModule": "index.ts"
+	}
+}

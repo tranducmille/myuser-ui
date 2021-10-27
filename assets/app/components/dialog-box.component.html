@@ -1,0 +1,14 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    
+  </mat-form-field>
+  <ng-template #elseTemplate>
+   Are you Sure to delete <b>{{local_data.name}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()" mat-flat-button color="primary">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>
